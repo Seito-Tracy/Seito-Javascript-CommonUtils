@@ -153,7 +153,7 @@ export function removeAt(arr, index) {
  * @returns
  */
 export function removeAtNewArr(arr, index) {
-  arr.splice(index,1)
+  arr.splice(index, 1);
   return arr;
 }
 
@@ -238,4 +238,32 @@ export function diff(arr1, arr2) {
     }
   });
   return newArr;
+}
+
+/**
+ * 数组去重
+ * @param {*} arr 
+ */
+export function unique(arr) {
+  return arr.reduce((item, current) => {
+    if (item.indexOf(current) === -1) {
+      item.push(current);
+    }
+    return item;
+  }, []);
+}
+
+/**
+ * 数组对象根据标识去重
+ * @param arr 源数组
+ * @param key 唯一标识
+ */
+export function uniqueByKey(arr, key) {
+    let obj = {};
+    let reduce = [];
+    reduce = arr.reduce(function (item, current) {
+        obj[current[key]] ? '' : (obj[current[key]] = true && item.push(current));
+        return item;
+    }, []);
+    return reduce
 }
