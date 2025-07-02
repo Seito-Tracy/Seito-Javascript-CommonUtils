@@ -5,3 +5,4 @@ export * as DateUtils from './dateUtil';
 export * as EnvUtils from './EnvUtil';
 export * as StringUtils from './StringUtil';
 export * as ValidateUtils from './validateUtil';
+export * as DebounceUtil from './debounceUtil';

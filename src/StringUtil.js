@@ -1,8 +1,8 @@
 /**
  * 判断字符串 str 是否包含子字符串 substr(区分大小写)
- * @param {*} str 
- * @param {*} substr 
- * @returns 
+ * @param {String} str 
+ * @param {String} substr 
+ * @returns {String}
  */
 export function contains(str, substr) {
   return str.includes(substr);
@@ -10,9 +10,9 @@ export function contains(str, substr) {
 
 /**
  * 忽略大小写地判断是否包含子串
- * @param {*} str 
- * @param {*} substr 
- * @returns 
+ * @param {String} str 
+ * @param {String} substr 
+ * @returns {String}
  */
 export function containsIgnoreCase(str, substr) {
   return str.toLowerCase().includes(substr.toLowerCase());
@@ -20,9 +20,9 @@ export function containsIgnoreCase(str, substr) {
 
 /**
  * 判断字符串是否以 prefix 开头
- * @param {*} str 
- * @param {*} prefix 
- * @returns 
+ * @param {String} str 
+ * @param {String} prefix 
+ * @returns {String}
  */
 export function startsWith(str, prefix) {
   return str.startsWith(prefix);
@@ -30,9 +30,9 @@ export function startsWith(str, prefix) {
 
 /**
  * 判断字符串是否以 suffix 结尾
- * @param {*} str 
- * @param {*} suffix 
- * @returns 
+ * @param {String} str 
+ * @param {String} suffix 
+ * @returns {String}
  */
 export function endsWith(str, suffix) {
   return str.endsWith(suffix);
@@ -40,9 +40,9 @@ export function endsWith(str, suffix) {
 
 /**
  * 判断字符串中是否包含数组中的任意单词(常用于敏感词)
- * @param {*} str 
- * @param {*} words 
- * @returns 
+ * @param {String} str 
+ * @param {String} words 
+ * @returns {String}
  */
 export function containsWords(str, words=[]) {
   return words.some((word) => str.includes(word));
@@ -50,7 +50,7 @@ export function containsWords(str, words=[]) {
 
 /**
  * 判断字符串中是否包含中文字符
- * @param {*} str 
+ * @param {String} str 
  * @returns 
  */
 export function containsChinese(str) {
@@ -60,7 +60,7 @@ export function containsChinese(str) {
 
 /**
  * 判断字符串中是否包含数字
- * @param {*} str 
+ * @param {String} str 
  * @returns 
  */
 export function containsNumber(str) {
@@ -70,7 +70,7 @@ export function containsNumber(str) {
 
 /**
  * 判断是否包含特殊字符，如 !@#$%^&*等
- * @param {*} str 
+ * @param {String} str 
  * @returns 
  */
 export function containsSpecialChar(str) {
@@ -80,7 +80,7 @@ export function containsSpecialChar(str) {
 
 /**
  * 改为全大写
- * @param {*} str 
+ * @param {String} str 
  * @returns 
  */
 export function allToUpperCase(str) {
@@ -89,7 +89,7 @@ export function allToUpperCase(str) {
 
 /**
  * 改为全小写
- * @param {*} str 
+ * @param {String} str 
  * @returns 
  */
 export function allToLowerCase(str) {
@@ -98,7 +98,7 @@ export function allToLowerCase(str) {
 
 /**
  * 首字母大写：将一个字符串的首字母转换为大写，其余字母转换为小写
- * @param {*} str
+ * @param {String} str
  * @returns
  */
 export function capitalize(str) {
@@ -107,9 +107,9 @@ export function capitalize(str) {
 
 /**
  * 在前缀补充值直到符合指定长度(例如补0)
- * @param {string} str  需要补充的原始值
- * @param {string} value  例如补0
- * @param {number} length  长度
+ * @param {String} str  需要补充的原始值
+ * @param {String} value  例如补0
+ * @param {Number} length  长度
  * @returns 
  */
 export function fillPrefix(str, value, length) {
@@ -118,9 +118,9 @@ export function fillPrefix(str, value, length) {
 
 /**
  * 在后缀补充值直到符合指定长度
- * @param {string} str 
- * @param {string} value 
- * @param {number} length 
+ * @param {String} str 
+ * @param {String} value 
+ * @param {Number} length 
  * @returns 
  */
 export function fillSuffix(str, value, length) {
@@ -138,7 +138,7 @@ export function isEmpty(str) {
 
 /**
  * 判断是否为空或只包含空格字符
- * @param {string} str 
+ * @param {String} str 
  * @returns 
  */
 export function isBlank(str) {
@@ -147,7 +147,7 @@ export function isBlank(str) {
 
 /**
  * 转为驼峰命名:"hello_world"→"helloWorld"
- * @param {string} str 
+ * @param {String} str 
  * @returns 
  */
 export function toCamelCase(str) {
@@ -201,7 +201,7 @@ export function unescapeHTML(str) {
 
 /**
  * 编码为 base64
- * @param {string} str 
+ * @param {String} str 
  * @returns 
  */
 export function base64Encode(str) {
@@ -251,7 +251,9 @@ export function templateReplace(str, dataObj) {
  * @returns 
  */
 export function getBool(val) {
-  return val === true || val === "true";
+  if (val === null) return false;
+  const str = val.trim().toUpperCase();
+  return str === "1" || str === "TRUE" || str === "T";
 }
 
 /**
@@ -279,4 +281,47 @@ export function ltrim(val) {
  */
 export function reverseString(str) {
   return str.split("").reverse().join("");
+}
+
+
+ /**
+   * 输入一条Array,及用于展示分割关系的符号，将内容合并成String
+   * @param  {String} arr
+   * @param  {String} char
+   * @returns {String}
+   */
+export function join(arr,char) {
+  return arr ? arr.join(char) : ''
+}
+
+/**
+ * 输入String及用于界定为分割关系的符号，将内容分割成Array
+ * @param {String} str 
+ * @param {String} char 
+ * @returns {Array}
+ */
+export function split(str,char) {
+  return str ? String(str).split(char) : ''
+}
+
+/**
+ * 抽取特定 Index 的文字
+ * @param {String} str 
+ * @param {Number} start 开始Index
+ * @param {Number} end 结束Index
+ * @returns {String}
+ */
+export function subString(str, start, end) {
+    if (str === null) return null;
+    if (str === "") return "";
+    const len = str.length;
+    start = start < 0 ? 0 : start;
+    end = end > len ? len : end;
+    if (start >= end) return "";
+    // 提取子串
+    let subStr = "";
+    for (let i = start; i < end; i++) {
+        subStr += str.charAt(i);
+    }
+    return subStr;
 }

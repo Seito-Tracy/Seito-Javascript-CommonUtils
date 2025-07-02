@@ -267,3 +267,23 @@ export function uniqueByKey(arr, key) {
     }, []);
     return reduce
 }
+
+/**
+ * 两个数组合并
+ * @param {Array} arr1 
+ * @param {Array} arr2 
+ * @returns 
+ */
+export function merge(arr1,arr2){
+  return arr1.concat(arr2);
+}
+
+/**
+ * 合并两个数组并自动去除重复的元素
+ * @param {*} arr1 
+ * @param {*} arr2 
+ * @returns 
+ */
+export function mergeAndDeduplicate(arr1, arr2) {
+  return [...new Set([...arr1, ...arr2])];
+}

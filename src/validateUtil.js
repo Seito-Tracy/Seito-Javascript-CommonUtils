@@ -173,6 +173,14 @@ export function isPhone(val) {
 }
 
 /**
+ * 手机号码
+ * @param {*} s
+ */
+export function isMobile(val) {
+  return /^1[0-9]{10}$/.test(val)
+}
+
+/**
  * 是否为中文
  * @param {string} val
  * @returns
@@ -208,7 +216,8 @@ export function isAlphaNumeric(val) {
  * @returns
  */
 export function isUpperCase(val) {
-  return val === val.toUpperCase();
+  const reg = /^[A-Z]+$/
+  return reg.test(str)
 }
 
 /**
@@ -217,7 +226,8 @@ export function isUpperCase(val) {
  * @returns
  */
 export function isLowerCase(val) {
-  return val === val.toLowerCase();
+  const reg = /^[a-z]+$/
+  return reg.test(str)
 }
 
 /**
