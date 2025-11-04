@@ -16,6 +16,7 @@ export function formatDate(date, format) {
     const hour = d.getHours().toString().padStart(2, '0');
     const minute = d.getMinutes().toString().padStart(2, '0');
     const second = d.getSeconds().toString().padStart(2, '0');
+    const milliseconds = d.getMilliseconds().toString().padStart(3, '0');
 
     if (month.length < 2) month = '0' + month;
     if (day.length < 2) day = '0' + day;
@@ -25,7 +26,8 @@ export function formatDate(date, format) {
       .replace('DD', day)
       .replace('HH', hour)
       .replace('MM', minute)
-      .replace('SS', second);
+      .replace('SS', second)
+      .replace('SSS', milliseconds);
   }
 }
 
