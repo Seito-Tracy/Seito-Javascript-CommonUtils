@@ -7,7 +7,7 @@
  */
 export function formatDate(date, format) {
   const d = new Date(date);
-  format = (format || 'YYYY-MM-DD hh:mm:ss').toLocaleUpperCase();
+  format = (format || 'YYYY-MM-DD hh:mm:ss');
   if(d && d !== 'Invalid Date'){
     let month = '' + (d.getMonth() + 1),
       day = '' + d.getDate(),
@@ -24,10 +24,10 @@ export function formatDate(date, format) {
     return format.replace('YYYY', year)
       .replace('MM', month)
       .replace('DD', day)
-      .replace('HH', hour)
-      .replace('MM', minute)
-      .replace('SS', second)
-      .replace('SSS', milliseconds);
+      .replace('hh', hour)
+      .replace('mm', minute)
+      .replace('ss', second)
+      .replace('sss', milliseconds);
   }
 }
 
