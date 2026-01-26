@@ -27,7 +27,7 @@ export function formatDate(date, format) {
       .replace('hh', hour)
       .replace('mm', minute)
       .replace('ss', second)
-      .replace('sss', milliseconds);
+      .replace('SSS', milliseconds);
   }
 }
 
